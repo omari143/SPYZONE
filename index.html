@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SYNC AGENT</title>
+  <style>
+    body {
+      background: #000;
+      color: #0f0;
+      font-family: monospace;
+      padding: 20px;
+      text-align: center;
+    }
+    .status {
+      background: #111;
+      border: 1px solid #0f0;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+    }
+    button {
+      background: #0f0;
+      color: #000;
+      border: none;
+      padding: 12px 20px;
+      font-weight: bold;
+      margin: 10px;
+      border-radius: 8px;
+    }
+    .log {
+      background: #111;
+      height: 250px;
+      overflow-y: auto;
+      text-align: left;
+      font-size: 11px;
+      padding: 8px;
+      border: 1px solid #0f0;
+    }
+  </style>
+</head>
+<body>
+  <h2>📡 SYNC AGENT (Stealth)</h2>
+  <div class="status" id="statusMsg">Initializing...</div>
+  <button id="syncNowBtn">🔄 SYNC NOW</button>
+  <button id="clearLogBtn">🗑️ Clear Log</button>
+  <div class="log" id="logPanel"></div>
+  <script src="app.js"></script>
+</body>
+</html>
