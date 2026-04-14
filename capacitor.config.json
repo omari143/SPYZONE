@@ -2,5 +2,5 @@
   "appId": "com.cyber.targetsync",
   "appName": "SyncAgent",
   "webDir": "target-app",
-  ...
+  "bundledWebRuntime": false
 }
