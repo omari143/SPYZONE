@@ -7,7 +7,7 @@
     "@capacitor/core": "^5.7.0",
     "@capacitor/preferences": "^5.0.0",
     "@capacitor/network": "^5.0.0",
-    "@capacitor-community/sms": "^5.0.0",
+    "capacitor-sms": "^1.2.0",
     "capacitor-call-log": "^1.0.6",
     "@supabase/supabase-js": "^2.38.0"
   },
