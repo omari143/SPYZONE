@@ -1,0 +1,9 @@
+git clone https://github.com/omari143/SPYZONE.git
+cd SPYZONE
+mkdir -p target-app
+# Hamisha faili za target app (zilizopo kwenye mizizi)
+mv index.html app.js package.json capacitor.config.json target-app/ 2>/dev/null
+# Ongeza na kusukuma
+git add .
+git commit -m "Create target-app folder and move files"
+git push
