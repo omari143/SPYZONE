@@ -24,7 +24,7 @@ jobs:
 
       - name: Capacitor init and sync
         run: |
-          npx cap init --web-dir . --app-id com.cyber.targetsync --app-name "SyncAgent"
+          npx cap init SyncAgent com.cyber.targetsync --web-dir .
           npx cap add android
           npx cap sync
 
